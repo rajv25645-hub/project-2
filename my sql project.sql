@@ -82,13 +82,28 @@ insert into suppliers values(601,"Medico Distributors","9876543210",
 Wholesalers","9001122334","Chennai"),(605,"Zenith Pharma Corp",
 "8866442200","Hyderabad");
 
-#tasks
+
 
 select medicine_name,medicine_id from medicine where stock_quantity>10;
 
-#select medicine_id,medicine_name from medicine    #2. ques doubt
 
 select medicine_id,sum(quantity) as total_sold from sales group by 
 medicine_id order by total_sold desc limit 3;
 select prescription_id,medicine_id  
+select*from prescription;
+
+Select medicine_name, price_per_unit From medicine;
+
+Select * From medicine Where stock_quantity = 0;
+
+Select p_name From patients Where city = 'Delhi';
+
+Select d_name, specialization From Doctor;
+
+Select * From prescription
+Where prescription_date Between '2024-01-01' and '2024-12-31';
+
+Select p.p_name, d.d_name From prescription pr
+JOIN patients p ON pr.patient_id = p.patient_id
+JOIN Doctor d ON pr.doctor_id = d.doctor_id;
 
